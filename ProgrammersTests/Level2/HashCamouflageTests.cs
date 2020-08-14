@@ -6,7 +6,7 @@ using System.Diagnostics;
 namespace Programmers.Level2.Tests
 {
     [TestClass()]
-    public class HashCamouflage_DDTests
+    public class HashCamouflageTests
     {
         private Dictionary<string[,], int> _samples = new Dictionary<string[,], int>();
 
