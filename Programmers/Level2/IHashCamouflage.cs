@@ -50,6 +50,6 @@ namespace Programmers.Level2
     /// </example>
     public interface IHashCamouflage
     {
-        int solution(string[,] clothes);
+        int Solution(string[,] clothes);
     }
 }
