@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Programmers.Level1
+﻿namespace Programmers.Level1
 {
     /// <summary>
     /// https://programmers.co.kr/learn/courses/30/lessons/42840

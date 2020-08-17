@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Programmers.Level1
 {
@@ -8,14 +6,46 @@ namespace Programmers.Level1
     {
         public int[] Solution(int[] answers)
         {
-            if(answers.Length == 5)
+            List<int[]> nerdPatterns = new List<int[]>();
+
+            nerdPatterns.Add(new int[] { 1, 2, 3, 4, 5 }              );
+            nerdPatterns.Add(new int[] { 2, 1, 2, 3, 2, 4, 2, 5 }     );
+            nerdPatterns.Add(new int[] { 3, 3, 1, 1, 2, 2, 4, 4, 5, 5});
+
+            var highScorers = new List<int>();
+            int highestScore = 0;
+            int nerdNumber = 1;
+            foreach(var nerdPattern in nerdPatterns)
             {
-                return new int[] { 1, 2, 3 };
+                var nerdPatternCount = nerdPattern.Length;
+
+                int index = 0;
+                int score = 0;
+                foreach(var answer in answers)
+                {
+                    if(answer == nerdPattern[(index%nerdPatternCount)])
+                    {
+                        score++;
+                    }
+
+                    index++;
+                }
+
+                if(score >= highestScore)
+                {
+                    if(score > highestScore)
+                    {
+                        highScorers.Clear();
+                    }
+
+                    highestScore = score;
+                    highScorers.Add(nerdNumber);
+                }
+
+                nerdNumber++;
             }
-            else
-            {
-                return new int[] { 1 };
-            }
+
+            return highScorers.ToArray();
         }
     }
 }
