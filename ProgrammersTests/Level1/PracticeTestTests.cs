@@ -29,7 +29,7 @@ namespace Programmers.Level1.Tests
         {
             try
             {
-                IPracticeTest practiceTest = GetSolution(solutionClassName);
+                IPracticeTest practiceTest = GetSolutionClass(solutionClassName);
 
                 bool testReuslt = true;
 
@@ -62,13 +62,13 @@ namespace Programmers.Level1.Tests
             }
         }
 
-        private IPracticeTest GetSolution(string solutionClassName)
+        private IPracticeTest GetSolutionClass(string solutionClassName)
         {
             try
             {
-                string practiceTestName = $"Programmers.Level1.{solutionClassName}, Programmers";
+                string testName = $"Programmers.Level1.{solutionClassName}, Programmers";
 
-                var objectType = Type.GetType(practiceTestName);
+                var objectType = Type.GetType(testName);
 
                 return Activator.CreateInstance(objectType) as IPracticeTest;
             }
