@@ -16,6 +16,7 @@ namespace Programmers.Level2.Tests
             AddSamples(new TruckBridgeSample(2, 10, new int[]{ 7,4,5,6}), 8);
             AddSamples(new TruckBridgeSample(100, 100, new int[]{ 10}), 101);
             AddSamples(new TruckBridgeSample(100, 100, new int[]{ 10,10,10,10,10,10,10,10,10,10}), 110);
+            AddSamples(new TruckBridgeSample(2, 5, new int[]{ 1,1,1,1,1,1,1}), 9);
         }
 
         private void AddSamples(TruckBridgeSample sample, int result)
@@ -24,6 +25,7 @@ namespace Programmers.Level2.Tests
         }
 
         [TestMethod()]
+        [DataRow("TruckCrossingBridge_DD")]
         [DataRow("TruckCrossingBridge_yu")]
         public void SolutionTest(string solutionClassName)
         {
