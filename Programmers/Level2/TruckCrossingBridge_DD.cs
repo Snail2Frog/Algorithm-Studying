@@ -7,10 +7,10 @@ namespace Programmers.Level2
     {
         public int Solution(int bridge_length, int weight, int[] truck_weights)
         {
-            var trucks = new Queue<Truck>();
+            var waitingTrucks = new Queue<Truck>();
             foreach(int truck_weight in truck_weights)
             {
-                trucks.Enqueue(new Truck() { Weight = truck_weight });
+                waitingTrucks.Enqueue(new Truck() { Weight = truck_weight });
             }
 
             int timer = 0;
@@ -29,13 +29,13 @@ namespace Programmers.Level2
                     trucksOnBrige.Dequeue();
                 }
 
-                if(trucks.Count > 0)
+                if(waitingTrucks.Count > 0)
                 {
                     int currentWeight = trucksOnBrige.Sum(t=>t.Weight);
-                    int nextWeight    = trucks.Peek().Weight;
+                    int nextWeight    = waitingTrucks.Peek().Weight;
                     if((currentWeight + nextWeight) <= weight)
                     {
-                        trucksOnBrige.Enqueue(trucks.Dequeue());
+                        trucksOnBrige.Enqueue(waitingTrucks.Dequeue());
                     }
                 }
 
