@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Programmers.Level1
 {
@@ -27,7 +24,7 @@ namespace Programmers.Level1
             {
                 for (int j = 1; j < 4; j++)
                 {
-                    if (answers[i] == patterns[j][i % patterns[j-1].Count])
+                    if (answers[i] == patterns[j][i % patterns[j].Count()])
                     {
                         corrects[j]++;
                     }
