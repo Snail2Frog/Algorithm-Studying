@@ -24,6 +24,7 @@ namespace Programmers.Level1.Tests
         }
 
         [TestMethod()]
+        [DataRow("PracticeTest_yu")]
         [DataRow("PracticeTest_DD")]
         public void SolutionTest(string solutionClassName)
         {

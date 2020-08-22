@@ -25,7 +25,7 @@ namespace Programmers.Level2
                 }
 
                 if (onBridge.Where(d=>d.position < bridge_length).Sum(d=>d.weight) + nextTruckWeight <= weight 
-                    && onBridge.Count < bridge_length
+                    && onBridge.Where(d=>d.position < bridge_length).Count() < bridge_length
                     && index < truck_weights.Count())
                 {
                     onBridge.Add(new Truck(truck_weights[index], 0));
@@ -42,7 +42,7 @@ namespace Programmers.Level2
                 {
                     break;
                 }
-                done.AddRange(onBridge.Where(d=>d.position > bridge_length).ToList());
+                done.Add(onBridge.Find(d=>d.position > bridge_length));
                 onBridge = onBridge.Where(d=>d.position <= bridge_length).ToList();
                 
                 answer++;
