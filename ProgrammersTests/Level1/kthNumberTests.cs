@@ -9,7 +9,7 @@ using System.Text;
 namespace Programmers.Level1.Tests
 {
     [TestClass()]
-    public class kthNumberTests 
+    public class KthNumberTests 
     {
         private Dictionary<KthNumberSample, int[]> _samples = new Dictionary<KthNumberSample, int[]>();
 
@@ -25,7 +25,7 @@ namespace Programmers.Level1.Tests
         }
 
         [TestMethod()]
-        [DataRow("PracticeTest_yu")]
+        [DataRow("KthNumber_yu")]
         public void SolutionTest(string solutionClassName)
         {
             try
