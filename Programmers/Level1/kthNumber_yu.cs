@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Programmers.Level1
 {
-    public class kthNumber_yu : IkthNumber
+    public class kthNumber_yu : IKthNumber
     {
         public int[] Solution(int[] array, int[,] commands)
         {

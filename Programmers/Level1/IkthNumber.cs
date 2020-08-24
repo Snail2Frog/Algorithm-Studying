@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Programmers.Level1
+﻿namespace Programmers.Level1
 {
     /// <summary>
     /// https://programmers.co.kr/learn/courses/30/lessons/42748
@@ -28,8 +24,8 @@ namespace Programmers.Level1
     /// 입출력 예 설명
     /// [1, 5, 2, 6, 3, 7, 4]를 2번째부터 5번째까지 자른 후 정렬합니다. [2, 3, 5, 6]의 세 번째 숫자는 5입니다.
     /// [1, 5, 2, 6, 3, 7, 4]를 4번째부터 4번째까지 자른 후 정렬합니다. [6]의 첫 번째 숫자는 6입니다.
-/// [1, 5, 2, 6, 3, 7, 4]를 1번째부터 7번째까지 자릅니다. [1, 2, 3, 4, 5, 6, 7]의 세 번째 숫자는 3입니다.
-    public interface IkthNumber
+    /// [1, 5, 2, 6, 3, 7, 4]를 1번째부터 7번째까지 자릅니다. [1, 2, 3, 4, 5, 6, 7]의 세 번째 숫자는 3입니다.
+    public interface IKthNumber
     {
         int[] Solution(int[] array, int[,] commands);
     }
