@@ -25,6 +25,7 @@ namespace Programmers.Level1.Tests
         }
 
         [TestMethod()]
+        [DataRow("KthNumber_DD")]
         [DataRow("KthNumber_yu")]
         public void SolutionTest(string solutionClassName)
         {
