@@ -1,43 +1,43 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Programmers.Level1;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 
 namespace Programmers.Level1.Tests
 {
     [TestClass()]
-    public class PracticeTestTests
+    public class KthNumberTests 
     {
-        private Dictionary<int[], int[]> _samples = new Dictionary<int[], int[]>();
+        private Dictionary<KthNumberSample, int[]> _samples = new Dictionary<KthNumberSample, int[]>();
 
         [TestInitialize]
         public void Init()
         {
-            AddSamples(new int[] { 1, 2, 3, 4, 5 }, new int[] { 1 } );
-            AddSamples(new int[] { 1, 3, 2, 4, 2 }, new int[] { 1, 2, 3 } );
+            AddSamples(new KthNumberSample(new int[] { 1,5,2,6,3,7,4 }, new int[,] {{ 2,5,3 },{ 4,4,1 },{ 1,7,3 } }), new int[] { 5,6,3 });
         }
 
-        private void AddSamples(int[] answers, int[] highestScorers)
+        private void AddSamples(KthNumberSample sample, int[] result)
         {
-            _samples.Add(answers, highestScorers);
+            _samples.Add(sample, result);
         }
 
         [TestMethod()]
-        [DataRow("PracticeTest_yu")]
-        [DataRow("PracticeTest_DD")]
+        [DataRow("KthNumber_yu")]
         public void SolutionTest(string solutionClassName)
         {
             try
             {
-                IPracticeTest practiceTest = GetSolutionClass(solutionClassName);
+                IkthNumber kthNumber = GetSolutionClass(solutionClassName);
 
                 bool testReuslt = true;
 
                 foreach(var sample in _samples)
                 {
                     int[] expectedResult = sample.Value;
-                    int[] result         = practiceTest.Solution(sample.Key);
+                    int[] result         = kthNumber.Solution(sample.Key.array, sample.Key.commands);
 
                     if(result.Length == expectedResult.Length
                     && result.Except(expectedResult).Count() == 0)
@@ -63,7 +63,7 @@ namespace Programmers.Level1.Tests
             }
         }
 
-        private IPracticeTest GetSolutionClass(string solutionClassName)
+        private IkthNumber GetSolutionClass(string solutionClassName)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace Programmers.Level1.Tests
 
                 var objectType = Type.GetType(testName);
 
-                return Activator.CreateInstance(objectType) as IPracticeTest;
+                return Activator.CreateInstance(objectType) as IkthNumber;
             }
             catch
             {

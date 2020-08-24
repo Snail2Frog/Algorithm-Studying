@@ -1,52 +1,52 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Programmers.Level1;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 
 namespace Programmers.Level1.Tests
 {
     [TestClass()]
-    public class PracticeTestTests
+    public class PrinterTests
     {
-        private Dictionary<int[], int[]> _samples = new Dictionary<int[], int[]>();
-
+        private Dictionary<PrinterSample, int> _samples = new Dictionary<PrinterSample, int>();
+        
         [TestInitialize]
         public void Init()
         {
-            AddSamples(new int[] { 1, 2, 3, 4, 5 }, new int[] { 1 } );
-            AddSamples(new int[] { 1, 3, 2, 4, 2 }, new int[] { 1, 2, 3 } );
-        }
+            AddSamples(new PrinterSample(new int[]{ 2, 1, 3, 2}, 2), 1);
+            AddSamples(new PrinterSample(new int[]{ 1, 1, 9, 1, 1, 1}, 2), 1);
 
-        private void AddSamples(int[] answers, int[] highestScorers)
+        }
+        private void AddSamples(PrinterSample sample, int expectedReturn)
         {
-            _samples.Add(answers, highestScorers);
+            _samples.Add(sample, expectedReturn);
         }
 
         [TestMethod()]
-        [DataRow("PracticeTest_yu")]
-        [DataRow("PracticeTest_DD")]
+        [DataRow("Printer_yu")]
         public void SolutionTest(string solutionClassName)
         {
             try
             {
-                IPracticeTest practiceTest = GetSolutionClass(solutionClassName);
+                IPrinter printer = GetSolutionClass(solutionClassName);
 
                 bool testReuslt = true;
 
                 foreach(var sample in _samples)
                 {
-                    int[] expectedResult = sample.Value;
-                    int[] result         = practiceTest.Solution(sample.Key);
+                    int expectedResult = sample.Value;
+                    int result         = printer.Solution(sample.Key.priorities, sample.Key.location);
 
-                    if(result.Length == expectedResult.Length
-                    && result.Except(expectedResult).Count() == 0)
+                    if(result == sample.Value)
                     {
                         Debug.WriteLine("PASS");
                     }
                     else
                     {
-                        Debug.WriteLine($"FAIL, result: {string.Join(",", result)}, expected result: {string.Join(",", expectedResult)}");
+                        Debug.WriteLine($"FAIL");
 
                         testReuslt = false;
                     }
@@ -63,7 +63,7 @@ namespace Programmers.Level1.Tests
             }
         }
 
-        private IPracticeTest GetSolutionClass(string solutionClassName)
+        private IPrinter GetSolutionClass(string solutionClassName)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace Programmers.Level1.Tests
 
                 var objectType = Type.GetType(testName);
 
-                return Activator.CreateInstance(objectType) as IPracticeTest;
+                return Activator.CreateInstance(objectType) as IPrinter;
             }
             catch
             {
