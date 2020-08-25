@@ -48,6 +48,5 @@ namespace Programmers.Camouflage
     /// </example>
     public interface ICamouflage : IQuestion<string[,], int>
     {
-        int Solution(string[,] clothes);
     }
 }

@@ -31,6 +31,5 @@
     /// </example>
     public interface IPracticeTest : IQuestion<int[], int[]>
     {
-        int[] Solution(int[] answers);
     }
 }

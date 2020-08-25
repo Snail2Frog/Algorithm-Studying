@@ -21,7 +21,7 @@ namespace ProgrammersTests
             {
                 bool testResult = true;
 
-                IQuestion<T1, T2> solutionClass = GetSolutionClass(ProjectName, solutionClassName);
+                IQuestion<T1, T2> solutionClass = GetSolutionClass(solutionClassName);
 
                 foreach (var sample in Samples)
                 {
@@ -53,11 +53,11 @@ namespace ProgrammersTests
             }
         }
 
-        private IQuestion<T1, T2> GetSolutionClass(string projectName, string solutionClassName)
+        private IQuestion<T1, T2> GetSolutionClass(string solutionClassName)
         {
             try
             {
-                string testName = $"Programmers.{projectName}.{solutionClassName}, Programmers";
+                string testName = $"Programmers.{ProjectName}.{solutionClassName}, Programmers";
 
                 var objectType = Type.GetType(testName);
 

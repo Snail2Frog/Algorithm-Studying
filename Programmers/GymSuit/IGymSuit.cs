@@ -32,6 +32,5 @@
     /// </example>
     public interface IGymSuit : IQuestion<(int n, int[] lost, int[] reserve), int>
     {
-        int Solution((int n, int[] lost, int[] reserve) input);
     }
 }

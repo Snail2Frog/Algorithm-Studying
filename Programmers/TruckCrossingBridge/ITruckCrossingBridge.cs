@@ -33,6 +33,5 @@
     /// 100	100	[10,10,10,10,10,10,10,10,10,10]	110
     public interface ITruckCrossingBridge : IQuestion<(int bridge_length, int weight, int[] truck_weights), int>
     {
-        int Solution((int bridge_length, int weight, int[] truck_weights) input);
     }
 }

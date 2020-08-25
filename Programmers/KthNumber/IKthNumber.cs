@@ -27,6 +27,5 @@
     /// [1, 5, 2, 6, 3, 7, 4]를 1번째부터 7번째까지 자릅니다. [1, 2, 3, 4, 5, 6, 7]의 세 번째 숫자는 3입니다.
     public interface IKthNumber : IQuestion<(int[] array, int[,] commands), int[]>
     {
-        int[] Solution((int[] array, int[,] commands) input);
     }
 }
