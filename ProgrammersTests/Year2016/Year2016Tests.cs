@@ -1,9 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Programmers.Year2016;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using ProgrammersTests;
+using System;
 
 namespace Programmers.Year2016.Tests
 {
@@ -18,11 +15,19 @@ namespace Programmers.Year2016.Tests
         [TestInitialize]
         public override void Init()
         {
-            //AddSample();
+            DateTime dateTime = new DateTime(2016, 1, 1);
+
+            while(dateTime < new DateTime(2017, 1, 1))
+            {
+                AddSample((dateTime.Month, dateTime.Day), dateTime.DayOfWeek.ToString().Substring(0,3).ToUpper());
+
+                dateTime = dateTime.AddDays(1);
+            }
         }
 
         [TestMethod]
         [DataRow("Year2016_DD")]
+        [DataRow("Year2016_DD2")]
         public override void Test(string solutionClassName)
         {
             SolutionTest(solutionClassName);
