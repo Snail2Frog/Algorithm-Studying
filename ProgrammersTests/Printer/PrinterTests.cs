@@ -20,6 +20,7 @@ namespace Programmers.Printer.Tests
 
         [TestMethod]
         [DataRow("Printer_yu")]
+        [DataRow("Printer_DD")]
         public override void Test(string solutionClassName)
         {
             SolutionTest(solutionClassName);
