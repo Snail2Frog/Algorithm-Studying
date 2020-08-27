@@ -24,6 +24,7 @@ namespace Programmers.MiddleLetters.Tests
 
         [TestMethod]
         [DataRow("MiddleLetters_DD")]
+        [DataRow("MiddleLetters_yu")]
         public override void Test(string solutionClassName)
         {
             SolutionTest(solutionClassName);
