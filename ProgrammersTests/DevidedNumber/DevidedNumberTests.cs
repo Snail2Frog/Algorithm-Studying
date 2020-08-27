@@ -21,6 +21,7 @@ namespace Programmers.DevidedNumber.Tests
 
         [TestMethod()]
         [DataRow("DevidedNumber_DD")]
+        [DataRow("DevidedNumber_yu")]
         public override void Test(string solutionClassName)
         {
             SolutionTest(solutionClassName);
