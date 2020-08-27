@@ -28,6 +28,7 @@ namespace Programmers.Year2016.Tests
         [TestMethod]
         [DataRow("Year2016_DD")]
         [DataRow("Year2016_DD2")]
+        [DataRow("Year2016_yu")]
         public override void Test(string solutionClassName)
         {
             SolutionTest(solutionClassName);
